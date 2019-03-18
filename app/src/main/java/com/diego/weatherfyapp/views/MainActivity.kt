@@ -17,7 +17,7 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
 
     lateinit var adapterWeather: WeatherAdapter
-    var cities: Array<String> = arrayOf("Curitiba", "London", "Los Angeles", "Chicago")
+    var cities: Array<String> = arrayOf("Curitiba", "London", "New York", "Los Angeles", "Chicago")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
