@@ -3,16 +3,15 @@ package com.diego.weatherfyapp.views
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.diego.weatherfyapp.R
 import com.diego.weatherfyapp.adapters.WeatherAdapter
-import com.diego.weatherfyapp.extras.dialogExit
-import com.diego.weatherfyapp.extras.toolbarSettings
+import com.diego.weatherfyapp.api.OpenWeatherApi
+import com.diego.weatherfyapp.api.model.WeatherResponse
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,10 +29,25 @@ class MainActivity : AppCompatActivity() {
     *Get weather info from api.
     * */
     private fun getWeather(){
+        try {
+            OpenWeatherApi.create(this).getWeather("London", getString(R.string.app_id))
+                .enqueue(object : Callback<WeatherResponse> {
+                    override fun onResponse(call: Call<WeatherResponse>?, response: Response<WeatherResponse>?) {
+                        response?.body()?.let { d->
 
+                            setWeatherAdapter()
+                        }
+                    }
 
-
-        setWeatherAdapter()
+                    override fun onFailure(call: Call<WeatherResponse>?, t: Throwable?) {
+                        t?.let {
+                            t.printStackTrace()
+                        }
+                    }
+                })
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
 
@@ -58,5 +72,6 @@ class MainActivity : AppCompatActivity() {
         listaCidades.layoutManager = llm
         listaCidades.adapter = adapterWeather
     }
+
 
 }

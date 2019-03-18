@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.diego.weatherfyapp.R
+import com.diego.weatherfyapp.api.model.Main
 import com.diego.weatherfyapp.api.model.Weather
 import kotlinx.android.synthetic.main.item_weather_card.view.*
 
-class WeatherAdapter (val context: Context) : BaseAdapter<Weather, WeatherAdapter.ViewHolder>(context) {
+class WeatherAdapter (val context: Context) : BaseAdapter<Main, WeatherAdapter.ViewHolder>(context) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder) {
