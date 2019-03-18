@@ -39,11 +39,12 @@ class MainActivity : AppCompatActivity() {
     *Get weather info from api.
     * */
     private fun getWeather() {
+        //start animation
+        frameLoading.visibility = View.VISIBLE
+        anim_load.playAnimation()
+
         cities.forEach { city ->
             try {
-                //start animation
-                frameLoading.visibility = View.VISIBLE
-
                 OpenWeatherApi.create(this).getWeather(city, getString(R.string.units), getString(R.string.app_id))
                     .enqueue(object : Callback<WeatherResponse> {
                         override fun onResponse(call: Call<WeatherResponse>?, response: Response<WeatherResponse>?) {

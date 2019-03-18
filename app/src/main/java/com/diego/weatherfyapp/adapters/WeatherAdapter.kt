@@ -11,23 +11,20 @@ import com.diego.weatherfyapp.api.model.Weather
 import com.diego.weatherfyapp.api.model.WeatherResponse
 import kotlinx.android.synthetic.main.item_weather_card.view.*
 
-class WeatherAdapter (val context: Context) : BaseAdapter<WeatherResponse, WeatherAdapter.ViewHolder>(context) {
+class WeatherAdapter (context: Context) : BaseAdapter<WeatherResponse, WeatherAdapter.ViewHolder>(context) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        with(holder) {
-            //set infos
+        //set infos
 
-            holder.nameCity.text = selectorList[position].name
+        holder.nameCity.text = selectorList[position].name
 
-            holder.maxTempeture.text = "${selectorList[position].main.temp_max}°C"
+        holder.maxTempeture.text = "${selectorList[position].main.temp_max}°C"
 
-            holder.minTempeture.text = "${selectorList[position].main.temp_min}°C"
+        holder.minTempeture.text = "${selectorList[position].main.temp_min}°C"
 
-            holder.humidity.text = "${selectorList[position].main.humidity}%"
+        holder.humidity.text = "${selectorList[position].main.humidity}%"
 
-            holder.pressure.text = "${selectorList[position].main.pressure} mb"
-
-        }
+        holder.pressure.text = "${selectorList[position].main.pressure} mb"
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
