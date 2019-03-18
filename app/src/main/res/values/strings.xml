@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">wheaterfy</string>
+    <string name="wheaterfy">wheaterfy</string>
+    <string name="exit_weatherfy">Exit weatherfy</string>
+    <string name="are_you_sure_you_want_exit_the_app">Are you sure you want exit the app?</string>
+    <string name="cancel">CANCEL</string>
+    <string name="exit">EXIT</string>
+</resources>
