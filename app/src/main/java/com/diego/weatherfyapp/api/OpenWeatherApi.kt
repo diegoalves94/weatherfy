@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit
 interface OpenWeatherApi {
 
     @GET("weather")
-    fun getWeather(@Query("q") q:String, @Query("appid") appid:String): Call<WeatherResponse>
+    fun getWeather(@Query("q") q:String, @Query("units") units : String, @Query("appid") appid:String): Call<WeatherResponse>
 
     /**
      * Companion object for the factory

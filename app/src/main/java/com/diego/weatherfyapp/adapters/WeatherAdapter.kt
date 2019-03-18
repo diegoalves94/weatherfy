@@ -8,16 +8,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.diego.weatherfyapp.R
 import com.diego.weatherfyapp.api.model.Main
 import com.diego.weatherfyapp.api.model.Weather
+import com.diego.weatherfyapp.api.model.WeatherResponse
 import kotlinx.android.synthetic.main.item_weather_card.view.*
 
-class WeatherAdapter (val context: Context) : BaseAdapter<Main, WeatherAdapter.ViewHolder>(context) {
+class WeatherAdapter (val context: Context) : BaseAdapter<WeatherResponse, WeatherAdapter.ViewHolder>(context) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder) {
+            //set infos
 
+            holder.nameCity.text = selectorList[position].name
 
+            holder.maxTempeture.text = "${selectorList[position].main.temp_max}°C"
 
+            holder.minTempeture.text = "${selectorList[position].main.temp_min}°C"
 
+            holder.humidity.text = "${selectorList[position].main.humidity}%"
+
+            holder.pressure.text = "${selectorList[position].main.pressure} mb"
 
         }
     }
