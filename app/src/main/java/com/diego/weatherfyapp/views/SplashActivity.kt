@@ -18,6 +18,7 @@ class SplashActivity : AppCompatActivity() {
         open()
     }
 
+
     /*
     * Runs lottie animation and goes to MainActivity.
     * */
@@ -29,4 +30,5 @@ class SplashActivity : AppCompatActivity() {
             startActivity(Intent(this@SplashActivity, MainActivity::class.java))
         }, 2500)
     }
+
 }

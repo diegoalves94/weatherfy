@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         getWeather()
     }
 
+
     /*
     *Get weather info from api.
     * */
@@ -67,8 +68,6 @@ class MainActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
-
-
     }
 
 
